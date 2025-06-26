@@ -1,0 +1,312 @@
+:root {
+    --color-principal: #1a7f37;
+    --color-fondo: #fafafa;
+    --color-texto: #222;
+    --color-precio: #4caf50;
+    --color-nav-bg: #fff;
+    --color-nav-activo: #1a7f37;
+    --color-nav-hover: #1a7f37;
+    --color-nav-texto: #1a7f37;
+    --color-nav-texto-activo: #fff;
+}
+
+.tema-verde {
+    --color-principal: #1a7f37;
+    --color-fondo: #fafafa;
+    --color-texto: #222;
+    --color-precio: #4caf50;
+    --color-nav-bg: #fff;
+    --color-nav-activo: #1a7f37;
+    --color-nav-hover: #1a7f37;
+    --color-nav-texto: #1a7f37;
+    --color-nav-texto-activo: #fff;
+}
+
+.tema-amarillo {
+    --color-principal: #e6b800;
+    --color-fondo: #fffbe6;
+    --color-texto: #222;
+    --color-precio: #e6b800;
+    --color-nav-bg: #fff;
+    --color-nav-activo: #e6b800;
+    --color-nav-hover: #e6b800;
+    --color-nav-texto: #e6b800;
+    --color-nav-texto-activo: #fff;
+}
+
+.tema-azul {
+    --color-principal: #1565c0;
+    --color-fondo: #f0f6fa;
+    --color-texto: #222;
+    --color-precio: #1976d2;
+    --color-nav-bg: #fff;
+    --color-nav-activo: #1565c0;
+    --color-nav-hover: #1565c0;
+    --color-nav-texto: #1565c0;
+    --color-nav-texto-activo: #fff;
+}
+
+.tema-rojo {
+    --color-principal: #c62828;
+    --color-fondo: #fff5f5;
+    --color-texto: #222;
+    --color-precio: #e53935;
+    --color-nav-bg: #fff;
+    --color-nav-activo: #c62828;
+    --color-nav-hover: #c62828;
+    --color-nav-texto: #c62828;
+    --color-nav-texto-activo: #fff;
+}
+
+.tema-bn {
+    --color-principal: #222;
+    --color-fondo: #fff;
+    --color-texto: #222;
+    --color-precio: #222;
+    --color-nav-bg: #fff;
+    --color-nav-activo: #222;
+    --color-nav-hover: #222;
+    --color-nav-texto: #222;
+    --color-nav-texto-activo: #fff;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    padding: 0 0.5rem;
+}
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem 0 0.5rem 0;
+    letter-spacing: 0.05em;
+}
+section {
+    margin-bottom: 2rem;
+    display: none;
+}
+section.active {
+    display: block;
+}
+h2 {
+    font-size: 1.2rem;
+    margin: 1.5rem 0 1rem 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3rem;
+    letter-spacing: 0.03em;
+}
+.plato {
+    display: flex;
+    align-items: stretch;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px #0001;
+    padding: 0.7rem;
+    min-height: 120px;
+    position: relative;
+}
+.plato-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #eee;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    display: block;
+}
+.plato-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+}
+.plato-nombre {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+    padding-right: 4.5rem;
+    word-break: break-word;
+    white-space: normal;
+    display: block;
+}
+.plato-desc {
+    font-size: 0.90rem;
+    color: #555;
+    margin-bottom: 0.25rem;
+}
+.plato-alergenos {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.2rem;
+}
+.plato-precio {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--color-precio);
+    position: absolute;
+    top: 0.7rem;
+    right: 0.9rem;
+    margin: 0;
+    align-self: unset;
+    background: #fff;
+    z-index: 1;
+    padding-left: 0.5em;
+    max-width: 40%;
+    text-align: right;
+}
+@media (max-width: 500px) {
+    .plato {
+        gap: 0.5rem;
+        padding: 0.5rem;
+        min-height: 80px;
+        position: relative;
+    }
+    .plato-img {
+        width: 100px;
+        height: 100px;
+        min-height: unset;
+        max-height: unset;
+    }
+    .plato-precio {
+        top: 0.5rem;
+        right: 0.7rem;
+        font-size: 1rem;
+    }
+}
+.categorias-nav {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.7rem 0 0.7rem 0;
+    background: var(--color-nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0.5rem;
+}
+.categorias-nav a {
+    text-decoration: none;
+    color: var(--color-nav-texto);
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    background: #f3f3f3;
+    transition: background 0.2s, color 0.2s;
+    font-size: 0.98rem;
+    white-space: nowrap;
+}
+.categorias-nav a:hover,
+.categorias-nav a:focus {
+    background: var(--color-nav-hover);
+    color: var(--color-nav-texto-activo);
+}
+.categorias-nav a.active {
+    background: var(--color-nav-activo);
+    color: var(--color-nav-texto-activo);
+}
+.restaurante-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 0 0.7rem 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+    text-align: center;
+}
+.restaurante-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #f3f3f3;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.restaurante-nombre {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-principal);
+    letter-spacing: 0.03em;
+}
+.restaurante-subtitulo {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 0.1rem;
+}
+@media (max-width: 500px) {
+    .restaurante-header {
+        gap: 0.7rem;
+        padding: 0.7rem 0 0.5rem 0;
+    }
+    .restaurante-logo {
+        width: 38px;
+        height: 38px;
+    }
+    .restaurante-nombre {
+        font-size: 1.05rem;
+    }
+    .restaurante-subtitulo {
+        font-size: 0.92rem;
+    }
+}
+.alergenos-lista {
+    display: flex;
+    gap: 0.3rem;
+    margin-top: 0.15rem;
+    flex-wrap: wrap;
+}
+.alergeno-icono {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+.alergeno-icono img,
+.alergeno-icono svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+    background: none;
+}
+.alergeno-icono svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+    object-fit: contain;
+    aspect-ratio: 1/1;
+    background: none;
+}
+.plato-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.plato-nombre {
+  font-weight: bold;
+  flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-word;
+  white-space: normal;
+}
+.plato-precio {
+  flex-shrink: 0;
+  color: var(--color-precio);
+  font-weight: bold;
+  margin-left: 8px;
+  white-space: nowrap;
+}

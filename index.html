@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carta Restaurante</title>
+    <link rel="stylesheet" href="carta-restaurante.css">
+</head>
+
+<body class="tema-bn">
+    <header class="restaurante-header">
+        <img src="https://img.icons8.com/ios-filled/100/1a7f37/restaurant.png" alt="Logo Restaurante"
+            class="restaurante-logo">
+        <div>
+            <div class="restaurante-nombre">Restaurante Verde Oliva</div>
+            <div class="restaurante-subtitulo">Cocina mediterránea & grill</div>
+        </div>
+    </header>
+    <nav class="categorias-nav">
+        <a href="#entrantes" class="active" data-section="entrantes">Entrantes</a>
+        <a href="#hamburguesas" data-section="hamburguesas">Hamburguesas</a>
+        <a href="#pizzas" data-section="pizzas">Pizzas</a>
+        <a href="#postres" data-section="postres">Postres</a>
+        <a href="#bebidas" data-section="bebidas">Bebidas</a>
+    </nav>
+    <div id="secciones-carta"></div>
+    <script>
+        const secciones = [
+            { id: 'entrantes', file: 'entrantes.html' },
+            { id: 'hamburguesas', file: 'hamburguesas.html' },
+            { id: 'pizzas', file: 'pizzas.html' },
+            { id: 'postres', file: 'postres.html' },
+            { id: 'bebidas', file: 'bebidas.html' }
+        ];
+
+        const contenedor = document.getElementById('secciones-carta');
+
+        secciones.forEach((sec, idx) => {
+            fetch(sec.file)
+                .then(r => r.text())
+                .then(html => {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = html;
+                    const section = temp.querySelector('section');
+                    if (section) {
+                        if (idx !== 0) section.classList.remove('active');
+                        contenedor.appendChild(section);
+                    }
+                });
+        });
+
+        document.querySelectorAll('.categorias-nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('.categorias-nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('#secciones-carta section').forEach(sec => sec.classList.remove('active'));
+                const sectionId = this.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) section.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+
+</html>
+
